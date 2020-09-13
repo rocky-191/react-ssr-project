@@ -12,12 +12,12 @@ module.exports={
     publicPath:'/public',
     libraryTarget:'commonjs2'
   },
-  devServer:{
-    open:true,
-    port:8088,
-    hot:true,
-    contentBase:'../dist',
-  },
+  // devServer:{
+  //   open:true,
+  //   port:8088,
+  //   hot:true,
+  //   contentBase:'../dist',
+  // },
   module:{
     rules:[
       {

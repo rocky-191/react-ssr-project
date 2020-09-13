@@ -7,7 +7,7 @@ class App extends Component {
   }
   render() { 
     return (
-      <div>hello word</div>
+      <div>hello word and learn react-ssr</div>
     );
   }
 }
