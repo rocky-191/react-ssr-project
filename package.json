@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.client.js",
-    "dev:server": "cross-env NODE_ENV=development node server/server.js",
+    "dev:server": "nodemon server/server.js",
     "build:client": "webpack --config build/webpack.config.client.js",
     "build:server": "webpack --config build/webpack.config.server.js",
     "clear": "rimraf dist",
     "build": "yarn clear && yarn build:client && yarn build:server",
-    "lint":"eslint --ext .js --ext .jsx client/",
-    "precommit":"yarn lint"
+    "lint": "eslint --ext .js --ext .jsx client/",
+    "precommit": "npm run lint"
   },
   "keywords": [],
   "author": "",
@@ -38,13 +38,16 @@
     "http-proxy-middleware": "^1.0.5",
     "husky": "^4.3.0",
     "memory-fs": "^0.5.0",
+    "nodemon": "^2.0.4",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.1.4"
   },
   "dependencies": {
     "axios": "^0.20.0",
     "express": "^4.17.1",
+    "http-server-request-handlers-empty-favicon": "^0.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "rimraf": "^3.0.2"

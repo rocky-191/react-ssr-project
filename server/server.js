@@ -1,27 +1,29 @@
-const express=require('express')
-const path=require("path")
-const ReactSSR=require('react-dom/server')
-const fs=require("fs")
-const app=express()
+const express = require('express')
+const path = require('path')
+const ReactSSR = require('react-dom/server')
+const fs = require('fs')
+// const emptyFavicon = require('http-server-request-handlers-empty-favicon')
+const app = express()
 
+// app.use(emptyFavicon)
 
-const isDev=process.env.NODE_ENV === 'development'
+const isDev = process.env.NODE_ENV === 'development'
 
-if(!isDev){
-  const serverEntry=require('../dist/server-entry.js')
-  const template=fs.readFileSync(path.join(__dirname,"../dist/index.html"),"utf-8")
-  app.use('/public',express.static(path.join(__dirname,'../dist')))
+if (!isDev) {
+  const serverEntry = require('../dist/server-entry.js')
+  const template = fs.readFileSync(path.join(__dirname, '../dist/index.html'), 'utf-8')
+  app.use('/public', express.static(path.join(__dirname, '../dist')))
 
-  app.get('*',function(req,res){
-    const appString=ReactSSR.renderToString(serverEntry.default)
-    const afterTemplate=template.replace('<!-- app -->',appString)
+  app.get('*', function (req, res) {
+    const appString = ReactSSR.renderToString(serverEntry.default)
+    const afterTemplate = template.replace('<!-- app -->', appString)
     res.send(afterTemplate)
   })
-}else{
-  const devStatic=require('./utils/dev.static')
+} else {
+  const devStatic = require('./utils/dev.static')
   devStatic(app)
 }
 
-app.listen(3000,function(){
+app.listen(3000, function () {
   console.log('react server render is running')
 })
