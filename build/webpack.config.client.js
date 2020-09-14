@@ -15,6 +15,9 @@ const config = merge(baseConfig, {
     path: path.join(__dirname, '../dist'),
     publicPath: '/public'
   },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
