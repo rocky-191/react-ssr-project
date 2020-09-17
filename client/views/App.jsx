@@ -13,6 +13,7 @@ class App extends Component {
       <>
         <Link to="/">首页</Link>
         <Link to="/detail">详情</Link>
+        <Link to="/testApi">测试接口</Link>
         <Routes />
       </>
     )
