@@ -9,6 +9,10 @@ export default class Appstate {
 
   @observable name='rocky'
 
+  @observable user= {
+    isLogin: false,
+  }
+
   @computed get msg() {
     return `${this.name} say count is ${this.count}`
   }

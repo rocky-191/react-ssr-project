@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import Routes from '../config/router.jsx'
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = { }
+  }
+
+  componentDidUpdate() {
+    console.log('update', this.props)
   }
 
   render() {
@@ -20,4 +24,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default withRouter(App)
