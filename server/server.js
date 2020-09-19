@@ -27,7 +27,7 @@ const isDev = process.env.NODE_ENV === 'development'
 
 if (!isDev) {
   const serverEntry = require('../dist/server-entry.js')
-  const template = fs.readFileSync(path.join(__dirname, '../dist/index.html'), 'utf-8')
+  const template = fs.readFileSync(path.join(__dirname, '../dist/server.ejs'), 'utf-8')
   app.use('/public', express.static(path.join(__dirname, '../dist')))
 
   app.get('*', function (req, res, next) {

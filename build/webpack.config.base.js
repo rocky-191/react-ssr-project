@@ -19,6 +19,18 @@ module.exports = {
             presets: ['@babel/preset-env', '@babel/react']
           }
         }
+      },
+      {
+        test: /\.ejs$/,
+        use: {
+          loader: 'ejs-compiled-loader',
+          options: {
+            htmlmin: true,
+            htmlminOptions: {
+              removeComments: true
+            }
+          }
+        }
       }
     ]
   }

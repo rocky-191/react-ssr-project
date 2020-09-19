@@ -4,6 +4,7 @@ import {
   observer,
   inject,
 } from 'mobx-react'
+import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 import AppState from '../../store/app-state.js'
 
@@ -31,6 +32,10 @@ class TopicList extends Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>this is topic list</title>
+          <meta name="description" content="this is description" />
+        </Helmet>
         <input type="text" onChange={(e) => this.changeName(e)} />
         <div>{ this.props.appState.msg}</div>
       </div>

@@ -14,10 +14,4 @@ module.exports = merge(baseConfig, {
     publicPath: '/public',
     libraryTarget: 'commonjs2'
   }
-  // devServer:{
-  //   open:true,
-  //   port:8088,
-  //   hot:true,
-  //   contentBase:'../dist',
-  // },
 })
